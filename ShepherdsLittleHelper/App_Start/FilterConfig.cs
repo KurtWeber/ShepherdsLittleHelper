@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using RequireHttpsAttributeBase = System.Web.Mvc.RequireHttpsAttribute;
-namespace ToDo
+namespace ShepherdsLittleHelper
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = false)]
     public class RequireHttpsAttribute : RequireHttpsAttributeBase
