@@ -1,0 +1,130 @@
+﻿@model ShepherdsLittleHelper.Models.Pet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details for @Html.DisplayFor(model => model.PetName)</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PetType.PetTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetType.PetTypeDescription)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.PetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+            @if (Model.Weight <= 1)
+            {
+                <span>lb</span>
+            }
+            else
+            {
+                <span>lbs</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @if(Model.Gender=="n")
+                {
+                    <span>Neutered</span>
+                }
+                @if (Model.Gender == "s")
+                {
+                    <span>Spayed</span>
+                }
+                @if (Model.Gender == "M")
+                {
+                    <span>Male</span>
+                }
+                @if (Model.Gender == "F")
+                {
+                    <span>Female</span>
+                }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PetNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+
+        </dd>
+
+    </dl>
+    <h3>Task for @Html.DisplayFor(model => model.PetName)</h3>
+    @foreach (var petTask in ViewBag.petTasks)
+    {
+        <dl class="dl-horizontal">
+            <dd>
+                <a href="/PetTasks/Details/@petTask.TaskID">@petTask.TaskDescription</a>
+            </dd>
+        </dl>
+    }
+    <h3>Task for @Html.DisplayFor(model => model.Location.LocationName)</h3>
+    @foreach (var locationTask in ViewBag.locationTasks)
+    {
+        <dl class="dl-horizontal">
+            <dd>
+                <a href="/PetTasks/Details/@locationTask.L_TaskID">@locationTask.TaskDescription</a>
+            </dd>
+        </dl>
+    }
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

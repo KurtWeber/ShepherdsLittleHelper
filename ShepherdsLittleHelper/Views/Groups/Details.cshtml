@@ -1,0 +1,43 @@
+﻿@model ShepherdsLittleHelper.Models.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Current users in @Html.DisplayFor(model => model.GroupName)</h2>
+
+
+<div class="container" id="groupCon">
+    @foreach (var user in ViewBag.users)
+    {
+
+        <p id="userName">@user.UserName</p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = model.GroupID }) |
+                    @Html.ActionLink("Details", "Details", new { id = model.GroupID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = model.GroupID })*@
+    }
+    @using (Html.BeginForm())
+    {
+        <p>
+            Enter an email to add to group.
+        </p>
+        <input type="text" name="email" />
+        <input type="submit" onclick="userAdded(@ViewBag.email)" />
+    }
+    <br />
+    <div id="userAddedMessage"></div>
+    
+
+            @*@Html.DisplayNameFor(model => model.GroupName)
+
+            @Html.DisplayFor(model => model.GroupName)*@
+
+    @* Here we list the users in the group by email *@
+
+    
+
+    
+</div>
+    <br />
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupID }) |
+    @Html.ActionLink("Back to List", "Index")

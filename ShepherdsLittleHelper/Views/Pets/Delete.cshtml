@@ -1,0 +1,112 @@
+﻿@model ShepherdsLittleHelper.Models.Pet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete @Html.DisplayFor(model => model.PetName)?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.LocationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PetType.PetTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetType.PetTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+            @if (Model.Weight <= 1)
+            {
+                <span>lb</span>
+            }
+            else
+            {
+                <span>lbs</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @if (Model.Gender == "n")
+            {
+                <span>Neutered</span>
+            }
+            @if (Model.Gender == "s")
+            {
+                <span>Spayed</span>
+            }
+            @if (Model.Gender == "M")
+            {
+                <span>Male</span>
+            }
+            @if (Model.Gender == "F")
+            {
+                <span>Female</span>
+            }
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PetNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PetNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

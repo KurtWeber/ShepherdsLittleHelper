@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ShepherdsLittleHelper.Models.Pet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@*
+    -remove species from index page
+    -fix javascript so that input is still stored (user friendlyness)
+
+
+
+
+
+*@
+<h2>Here are your pets!</h2>
+
+<p>
+    @Html.ActionLink("Add pet", "Create")
+</p>
+@*<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.LocationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetType.PetTypeDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PetNotes)
+        </th>
+        <th></th>
+    </tr>*@
+
+<div class="container" id="petContainer">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-12 col-sm-6 col-md-4" id="petBoarder">
+                @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+                @*Use default image if picture not available*@
+                <img src="@Url.Content(item.ImageURL)" onerror="this.src='../../Images/file.jpg'" id="petPicture" />
+                <br />
+                <span id="petName">@Html.DisplayFor(modelItem => item.PetName)</span>
+                <br />
+                <hr>
+                <span id="petDisplay">@Html.DisplayNameFor(model => model.Location.LocationName)</span> : @Html.DisplayFor(modelItem => item.Location.LocationName)
+                <br />
+                <span id="petDisplay">@Html.DisplayNameFor(model => model.PetType.PetTypeDescription)</span> : @Html.DisplayFor(modelItem => item.PetType.PetTypeDescription)
+               <br />
+                <span id="petDisplay">@Html.DisplayNameFor(model => model.Gender)</span> : @*@Html.DisplayFor(modelItem => item.Gender)*@
+                @if (item.Gender == "n")
+                {
+                    <span>Neutered</span>
+                }
+                @if (item.Gender == "s")
+                {
+                    <span>Spayed</span>
+                }
+                @if (item.Gender == "M")
+                {
+                    <span>Male</span>
+                }
+                @if (item.Gender == "F")
+                {
+                    <span>Female</span>
+                }
+
+                <br />
+                <span id="petDisplay">@Html.DisplayFor(modelItem => item.Age)</span> || @Html.DisplayFor(modelItem => item.Birthday)
+                <br />
+                <span id="petDisplay">@Html.DisplayNameFor(model => model.Weight)</span> : @Html.DisplayFor(modelItem => item.Weight)
+                @if (item.Weight <= 1)
+                {
+                    <span>lb</span>
+                }
+                else
+                {
+                    <span>lbs</span>
+                }
+                <br />
+                <span id="petDisplay">@Html.DisplayNameFor(model => model.PetNotes)</span> : @Html.DisplayFor(modelItem => item.PetNotes)
+                <br />
+                @Html.ActionLink("Pet task", "Index", "PetTasks") ||
+                @Html.ActionLink("Edit", "Edit", new { id = item.PetID }) ||
+                @Html.ActionLink("Details", "Details", new { id = item.PetID }) ||
+                @Html.ActionLink("Delete", "Delete", new { id = item.PetID })
+            </div>
+        }
+    </div>
+</div>
+
