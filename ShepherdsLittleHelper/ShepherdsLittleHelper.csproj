@@ -209,9 +209,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611291636118_PulledFromMaster.cs" />
-    <Compile Include="Migrations\201611291636118_PulledFromMaster.Designer.cs">
-      <DependentUpon>201611291636118_PulledFromMaster.cs</DependentUpon>
+    <Compile Include="Migrations\201611292323316_FixDatabaseIssue.cs" />
+    <Compile Include="Migrations\201611292323316_FixDatabaseIssue.Designer.cs">
+      <DependentUpon>201611292323316_FixDatabaseIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611300025363_CantLoginToWebSite.cs" />
+    <Compile Include="Migrations\201611300025363_CantLoginToWebSite.Designer.cs">
+      <DependentUpon>201611300025363_CantLoginToWebSite.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -407,8 +411,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611291636118_PulledFromMaster.resx">
-      <DependentUpon>201611291636118_PulledFromMaster.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611292323316_FixDatabaseIssue.resx">
+      <DependentUpon>201611292323316_FixDatabaseIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611300025363_CantLoginToWebSite.resx">
+      <DependentUpon>201611300025363_CantLoginToWebSite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

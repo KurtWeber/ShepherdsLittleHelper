@@ -7,13 +7,13 @@ namespace ShepherdsLittleHelper.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PulledFromMaster : IMigrationMetadata
+    public sealed partial class CantLoginToWebSite : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PulledFromMaster));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CantLoginToWebSite));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611291636118_PulledFromMaster"; }
+            get { return "201611300025363_CantLoginToWebSite"; }
         }
         
         string IMigrationMetadata.Source
