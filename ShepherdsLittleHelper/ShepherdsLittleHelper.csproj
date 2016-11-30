@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201611292323316_FixDatabaseIssue.Designer.cs">
       <DependentUpon>201611292323316_FixDatabaseIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611300025363_CantLoginToWebSite.cs" />
+    <Compile Include="Migrations\201611300025363_CantLoginToWebSite.Designer.cs">
+      <DependentUpon>201611300025363_CantLoginToWebSite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Group.cs" />
@@ -409,6 +413,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611292323316_FixDatabaseIssue.resx">
       <DependentUpon>201611292323316_FixDatabaseIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611300025363_CantLoginToWebSite.resx">
+      <DependentUpon>201611300025363_CantLoginToWebSite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
