@@ -506,3 +506,9 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #4d4d4d;
+}
+#rememberBox{
+    margin:4px auto 4px auto;
+}
